@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<title>W3.JS</title>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<body>
+
+<h2>Testing W3.JS in HTML</h2>
+
+<ul id="id01">
+  <li w3-repeat="customers">{{CustomerName}}</li>
+</ul>
+
+<script>
+w3.getHttpObject("customers.js", myFunction);
+
+function myFunction(myObject) {
+  var i;
+  var myArray = myObject.customers;
+  for (i = 0; i < myArray.length; i++) {
+    myArray[i]["CustomerName"] =
+    myArray[i]["CustomerName"].toUpperCase();
+  }
+  w3.displayObject("id01", myObject);
+}
+</script>
+
+</body>
+</html> 
